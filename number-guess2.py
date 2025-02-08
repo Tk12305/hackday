@@ -1,10 +1,38 @@
 import random
-def guess_the_number():
-    user_wants_to_stop = 0
+import time
+import os
 
+def clear_screen():
+    # Clear the screen for different OS
+    os.system('cls' if os.name = 'nt' else 'clear')
+
+def celebrate():
+    fireworks = [
+        "        *         *",
+        "       * *       * *",
+        "      *   *     *   *",
+        "     *     *   *     *",
+        "    *       * *       *",
+        "   *         *         *",
+        "    *       * *       *",
+        "     *     *   *     *",
+        "      *   *     *   *",
+        "       * *       * *",
+        "        *         *"
+    ]
+
+    for _ in range(5):  # Display fireworks 5 times
+        clear_screen()
+        for line in fireworks:
+            print(line)
+        time.sleep(0.5)
+        clear_screen()
+        time.sleep(0.3)
+
+    print("🎉🎉🎉 Congratulations! You guessed the number! 🎉🎉🎉")
+
+def guess_the_number():
     while True:
-        if user_wants_to_stop:
-            break
         print("Welcome to 'Guess the Number'!")
         print("I’m thinking of a number between 1 and 100.")
 
@@ -22,19 +50,11 @@ def guess_the_number():
                 elif guess > secret_number:
                     print("Too high! Try again.")
                 else:
-                    # If the guess is correct, break out of the loop
-                    print(f"Congratulations! You guessed the number.")
+                    # If the guess is correct, celebrate and break out of the loop
+                    celebrate()
                     break
             except ValueError:
                 print("Please enter a valid number.")
-
-
-        # Ask if the player wants to play again
-        play_again = input("Do you want to play again? (yes or no): ").strip().lower()
-        if play_again != "yes":
-            print("Thanks for playing! Goodbye!")
-            user_wants_to_stop = 1
-
 
 # Run the game
 guess_the_number()
