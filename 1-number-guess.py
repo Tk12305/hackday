@@ -2,10 +2,10 @@ import random
 def guess_the_number():
     while True:
         print("Welcome to 'Guess the Number'!")
-        print("I’m thinking of a number between 1 and 100.")
+        print("I’m thinking of a number between 1 and 1000.")
 
         # The computer picks a random number between 1 and 100
-        secret_number = random.randint(1, 100)
+        secret_number = random.randint(1, 1000)
 
         while True:
             try:
